@@ -12,14 +12,14 @@ int main() {
             printf("can't allocate redis context \n");
         }
     } else {
-        printf("ok %s\n");
+        printf("ok\n");
     }
     redisReply *reply = redisCommand(c, "set %s %s", "aa", "dd");
-    printf("set aa ; value: %s", reply->str);
+    printf("set aa ; value: %s\n", reply->str);
     freeReplyObject(reply);
 
     reply = redisCommand(c, "get %s", "aa");
-    printf("get aa ; value: %s", reply->str);
+    printf("get aa ; value: %s\n", reply->str);
     freeReplyObject(reply);
 
     redisFree(c);
